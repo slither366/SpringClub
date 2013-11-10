@@ -2,9 +2,9 @@
 package app.dao;
 
 import app.model.Local;
-import app.zelper.GenericDAO;
+import app.zelper.GenericCRUD;
 
 
-public interface LocalDAO extends GenericDAO<Local>{
+public interface LocalDAO extends GenericCRUD<Local>{
     
 }
