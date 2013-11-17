@@ -17,29 +17,30 @@
                 <div class="span9">
                     <div class="row">
                         <a class="btn btn-primary pull-right "
-                           href="<%=contextPath%>/adm/local/new">Nuevo</a>
-                        <h1> Locales </h1>
+                           href="<%=contextPath%>/adm/campo/new">Nuevo</a>
+                        <h1> Campos </h1>
                         <table class="table table-striped table-hover"> 
                             <thead>
                             <th> Descripción </th>
-                            <th> Dirección </th>
-                            <th> Teléfono </th>                            
-                            <th> Estado </th>  
+                            <th> Estado </th>
+                            <th> Tipo </th>                            
+                            <th> Costo/Hora </th>  
                             <th></th>
                             </thead>
-                            <c:forEach var="serv" items="${locales}">
+                            <c:forEach var="serv" items="${campos}">
                                 <tr>
                                     <td><c:out value="${serv.descripcion}"/></td> 
-                                    <td><c:out value="${serv.direccion}"/></td>     
-                                    <td><c:out value="${serv.telefono}"/></td>    
                                     <td><c:if test="${serv.estado!=1}">
                                             <span class="label label-success">Disponible</span>
                                         </c:if>
                                         <c:if test="${serv.estado==1}">
                                             <span class="label label-important">No Disponible</span>
-                                        </c:if>                                            
+                                        </c:if>   
+                                    </td>     
+                                    <td><c:out value="${serv.tipo}"/></td>    
+                                    <td>
+                                        <c:out value="${serv.costo_hora}"/>                              
                                     </td>
-
 
                                     <td> 
                                         <div class="btn-group">
@@ -48,10 +49,10 @@
                                             </a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a href="<%=contextPath%>/adm/local/update/${serv.id}">Editar<a>
+                                                    <a href="<%=contextPath%>/adm/campo/update/${serv.id}">Editar<a>
                                                             </li>
                                                             <li>
-                                                                <a href="<%=contextPath%>/adm/local/delete/${serv.id}">Eliminar<a>
+                                                                <a href="<%=contextPath%>/adm/campo/delete/${serv.id}">Eliminar<a>
                                                                         </li>
                                                                         </ul>
                                                                         </div>
