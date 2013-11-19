@@ -10,6 +10,7 @@
             <li><a href="<%=contextPath%>/adm/local">Locales</a></li>
             <li><a href="<%=contextPath%>/adm/campo">Campos Deportivos</a></li>
             <li><a href="<%=contextPath%>/adm/servicio">Otros Servicios</a></li>
+            <li><a href="<%=contextPath%>/adm/persona">Registrar Socio</a></li>
         </ul>
     </div>
     
