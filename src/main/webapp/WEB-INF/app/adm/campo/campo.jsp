@@ -25,23 +25,21 @@
                             <th> Estado </th>
                             <th> Tipo </th>                            
                             <th> Costo/Hora </th>  
-                            <th></th>
+                            <th> Local</th>
                             </thead>
-                            <c:forEach var="serv" items="${campos}">
+                            <c:forEach var="serv" items="${campo}">
                                 <tr>
                                     <td><c:out value="${serv.descripcion}"/></td> 
-                                    <td><c:if test="${serv.estado!=1}">
+                                    <td><c:if test="${serv.estado!=7}">
                                             <span class="label label-success">Disponible</span>
                                         </c:if>
-                                        <c:if test="${serv.estado==1}">
+                                        <c:if test="${serv.estado==7}">
                                             <span class="label label-important">No Disponible</span>
                                         </c:if>   
                                     </td>     
-                                    <td><c:out value="${serv.tipo}"/></td>    
-                                    <td>
-                                        <c:out value="${serv.costo_hora}"/>                              
-                                    </td>
-
+                                    <td><c:out value="${serv.tipo}"/></td>  
+                                    <td><c:out value="${serv.costoHora}"/></td>  
+                                    <td><c:out value="${serv.local}"/></td> 
                                     <td> 
                                         <div class="btn-group">
                                             <a class="dropdown-toggle" data-toggle="dropdown" role="menu"  href="#">
@@ -50,16 +48,16 @@
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="<%=contextPath%>/adm/campo/update/${serv.id}">Editar<a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="<%=contextPath%>/adm/campo/delete/${serv.id}">Eliminar<a>
-                                                                        </li>
-                                                                        </ul>
-                                                                        </div>
-                                                                        </td>                
-                                                                        </tr> 
-                                                                    </c:forEach>                            
-                                                                    </table>                           
+                                                </li>
+                                                <li>
+                                                    <a href="<%=contextPath%>/adm/campo/delete/${serv.id}">Eliminar<a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>                
+                              </tr> 
+                            </c:forEach>                            
+                        </table>                           
                                                                     </div> 
                                                                     </div>
                                                                     </div>
