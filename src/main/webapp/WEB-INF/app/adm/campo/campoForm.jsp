@@ -18,7 +18,7 @@
                         <h1> Nuevo Campo </h1>
                     </div>
                     
-                    <form action="<%=contextPath%>/adm/local/save" method="post" class="form-horizontal">
+                    <form action="<%=contextPath%>/adm/campo/save" method="post" class="form-horizontal">
                         
                         <input type="hidden" name="id" value="${campo.id}" name="id">
                         
@@ -37,9 +37,9 @@
                         </div>
                             
                         <div class="control-group">
-                            <label class="control-label">Costo Hora</label>
+                            <label class="control-label">CostoHora</label>
                             <div class="controls">
-                                <input type="text" name="maps" value="${campo.costo_hora}">
+                                <input type="text" name="maps" value="${campo.costoHora}">
                             </div>
                         </div>
                             
