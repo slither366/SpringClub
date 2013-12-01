@@ -39,4 +39,12 @@ public class LocalServiceImpl  implements LocalService{
         localDAO.delete(t);
     }
     
+    @Override
+    public void activar(long id){
+        Local local = localDAO.get(new Local(id));
+        int estado = (local.getEstado() == 1) ? 0:1;
+        local.setEstado(estado);
+        localDAO.update(local);
+    }
+    
 }

@@ -3,20 +3,24 @@ package app.controller.adm.local;
 import app.controller.adm.local.*;
 import app.dao.LocalDAO;
 import app.model.Local;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.support.ManagedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("adm/local")
 public class LocalController {
     
     @Autowired
-    LocalDAO service;
+    LocalService service;
     
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model){
@@ -58,4 +62,16 @@ public class LocalController {
        
         return "redirect:/adm/local";        
     }        
+    
+    @ResponseBody
+    @RequestMapping("activar")
+    public Map<String, Object> activar(@RequestParam long id){
+        service.activar(id);
+        
+        Map<String,Object> respuesta = new ManagedMap<String,Object>();
+        respuesta.put("succes",true);
+        
+        return respuesta;
+        
+    }
 }

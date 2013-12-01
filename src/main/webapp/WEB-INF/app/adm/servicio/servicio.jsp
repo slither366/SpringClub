@@ -35,6 +35,7 @@
                                                 <i class="icon-cog"></i>
                                             </a>
                                         <ul class="dropdown-menu pull-right">
+
                                                 <li>
                                                     <a href="<%=contextPath%>/adm/servicio/update/${serv.id}">Editar<a>
                                                 </li>
@@ -46,11 +47,12 @@
                                     </td>                
                                 </tr> 
                             </c:forEach>                            
-                        </table>                           
+                        </table>                         
                     </div> 
                 </div>
             </div>
         </div>
+                        
         <%@include file="/public/footer.jsp" %>                                                
     </body>
 </html>

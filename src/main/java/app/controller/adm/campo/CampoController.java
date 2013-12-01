@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CampoController {
 
     @Autowired
-    CampoDAO service;
+    CampoService service;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
@@ -27,6 +27,8 @@ public class CampoController {
     @RequestMapping("new")
     public String nuevo(Model model) {
         model.addAttribute("campo", new Campo());
+        model.addAttribute("locales", service.listLocal());//ESTA IMPLEMENTADO EN CampoServiceImpl.java
+        //LISTA LOCALES EN CAMPOFORM
         return "adm/campo/campoForm";
     }
 

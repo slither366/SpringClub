@@ -6,5 +6,6 @@ import app.zelper.GenericCRUD;
 
 
 public interface LocalService extends GenericCRUD<Local>{
-    
+ 
+    public void activar(long id);
 }

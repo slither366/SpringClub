@@ -11,7 +11,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "administrador")
+//@Table(name = "administrador")//INDICA QUE EN LA BASE DE DATOS EXISTE LA TABLA ADMINISTRADOR
+@Table(name = "persona")
 public class Administrador {
     
     @Id

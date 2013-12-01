@@ -1,8 +1,9 @@
-
 package app.controller.adm.campo;
 
 import app.dao.CampoDAO;
+import app.dao.LocalDAO;
 import app.model.Campo;
+import app.model.Local;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,9 @@ public class CampoServiceImpl implements CampoService {
     ///Netbean inyecte el Bean    
     @Autowired
     CampoDAO campoDAO;
-    
+    @Autowired
+    LocalDAO localDAO;
+
     @Override
     public List<Campo> list() {
         return campoDAO.list();
@@ -38,5 +41,14 @@ public class CampoServiceImpl implements CampoService {
     public void delete(Campo t) {
         campoDAO.delete(t);
     }
-    
+
+    @Override
+    public List<Local> listLocal() {
+        return localDAO.list();
+    }
+/*
+    @Override
+    public void activar(long id){
+        Local local = localDAO.get(new )
+    }*/
 }

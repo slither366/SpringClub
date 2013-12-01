@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -42,11 +43,16 @@
                                 <input type="text" name="maps" value="${campo.costoHora}">
                             </div>
                         </div>
+
                             
-                        <div class="control-group">
-                            <label class="control-label">Codigo</label>
+                       <div class="control-group">
+                            <label class="control-label">Local</label>
                             <div class="controls">
-                                <input type="text" name="telefono" value="${local.codigo}">
+                                <select type="text" name="local">
+                                    <c:forEach var="serv" items="${locales}"><%--ESTO SE IMPLEMENTA EN CAMPOCONTROLLER --%>
+                                        <option value="${serv.id}"><c:out value="${serv.descripcion}"/></option>
+                                    </c:forEach> 
+                                </select>
                             </div>
                         </div>
                             

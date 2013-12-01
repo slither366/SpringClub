@@ -26,16 +26,16 @@
                             <th> Teléfono </th>                            
                             <th> Estado </th>  
                             <th></th>
-                            </thead>
+
                             <c:forEach var="serv" items="${locales}">
                                 <tr>
                                     <td><c:out value="${serv.descripcion}"/></td> 
                                     <td><c:out value="${serv.direccion}"/></td>     
                                     <td><c:out value="${serv.telefono}"/></td>    
-                                    <td><c:if test="${serv.estado!=1}">
+                                    <td><c:if test="${serv.estado!=0}">
                                             <span class="label label-success">Disponible</span>
                                         </c:if>
-                                        <c:if test="${serv.estado==1}">
+                                        <c:if test="${serv.estado==0}">
                                             <span class="label label-important">No Disponible</span>
                                         </c:if>                                            
                                     </td>
@@ -47,8 +47,15 @@
                                                 <i class="icon-cog"></i>
                                             </a>
                                             <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="<%=contextPath%>/adm/local/update/${serv.id}">Editar<a>
+
+                                                <li> 
+                                                    <a href="#" class="activar" ref="${serv.id}">
+                                                        <c:if test="${serv.estado == 0}">Activar</c:if>
+                                                        <c:if test="${serv.estado == 1}">Desactivar</c:if>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<%=contextPath%>/adm/local/update/${serv.id}">Editar<a>
                                                             </li>
                                                             <li>
                                                                 <a href="<%=contextPath%>/adm/local/delete/${serv.id}">Eliminar<a>
@@ -63,6 +70,32 @@
                                                                     </div>
                                                                     </div>
                                                                     </div>
-                                                                    <%@include file="/public/footer.jsp" %>                                                
+                                                                    <%@include file="/public/footer.jsp" %>   
+                                                                    
+                                                                    <script>
+                                                                        $(function(){
+                                                                            $('.activar').each(function(index, elem){
+                                                                                $(elem).click(function(){
+                                                                                    var idLocal = $(elem).attr("ref");
+                                                                                    console.log(idLocal);
+                                                                                    //CHROME = MOSTRAR CONSOLA: CTRL + SHIFT + I
+                                                                                    
+                                                                                    $.ajax({
+                                                                                        url:'/SpringClub/adm/local/activar',
+                                                                                        method: 'post',
+                                                                                        data:{id : idLocal},
+                                                                                        success: function(response){
+                                                                                            if(response.succes){
+                                                                                                location.reload();
+                                                                                            }
+                                                                                        }
+                                                                                        
+                                                                                    })
+                                                                                });
+                                                                            });                                                                            
+                                                                        });
+                                                                        
+                                                                    </script>
+                                                                    
                                                                     </body>
                                                                     </html>
